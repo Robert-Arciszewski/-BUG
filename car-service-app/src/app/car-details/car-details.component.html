@@ -1,0 +1,11 @@
+<div class="card">
+  <h2>Szczegóły: {{ car.name }}</h2>
+  <button (click)="addService()">Dodaj Serwis</button>
+  <ul>
+    <li *ngFor="let service of car.services">
+      <p style="width: 50%"><strong>Część:</strong> {{ service.part }}</p>
+      <p style="width: 50%"><strong>Koszt:</strong> {{ service.cost }} zł</p>
+    </li>
+  </ul>
+  <button (click)="goBack()">Powrót</button>
+</div>

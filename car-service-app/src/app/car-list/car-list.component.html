@@ -1,0 +1,22 @@
+<div class="card">
+  <h2>Lista Samochodów</h2>
+  <button (click)="openModal()">Dodaj Samochód</button>
+
+  <!-- Lista samochodów -->
+  <ul>
+    <li *ngFor="let car of cars; let i = index">
+      {{ car.name }}
+      <button (click)="viewDetails(i)">Szczegóły</button>
+    </li>
+  </ul>
+</div>
+
+<!-- Modal -->
+<div class="modal" [ngClass]="{'show': isModalOpen}">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Dodaj Samochód</h2>
+    <input type="text" style="width: 80%" [(ngModel)]="newCarName" placeholder="Nazwa samochodu">
+    <button (click)="addCar()">Dodaj</button>
+  </div>
+</div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "localstorage_car_app": {
+    "car-service-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/localstorage_car_app",
+            "outputPath": "dist/car-service-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "localstorage_car_app:build:production"
+              "buildTarget": "car-service-app:build:production"
             },
             "development": {
-              "buildTarget": "localstorage_car_app:build:development"
+              "buildTarget": "car-service-app:build:development"
             }
           },
           "defaultConfiguration": "development"
