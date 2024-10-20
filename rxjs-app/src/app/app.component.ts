@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AverageAgeComponent } from './average-age/average-age.component'; // Importujemy komponent
+import { AverageAgeComponent } from './average-age/average-age.component';
 
 @Component({
   selector: 'app-root',
