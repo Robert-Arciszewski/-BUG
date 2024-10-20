@@ -10,7 +10,13 @@ export class PokemonService {
 
   constructor(private http: HttpClient) {}
 
+  // Pobieranie listy Pokemonów
   getPokemonList(): Observable<any> {
     return this.http.get(`${this.apiUrl}/pokemon?limit=10`);
+  }
+
+  // Pobieranie szczegółów konkretnego Pokemona
+  getPokemonDetails(name: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/pokemon/${name}`);
   }
 }

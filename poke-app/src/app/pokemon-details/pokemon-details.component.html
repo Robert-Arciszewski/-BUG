@@ -1,18 +1,31 @@
-<div *ngIf="pokemonDetails">
-  <h1>{{ pokemonDetails.name | titlecase }}</h1>
-  <img [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}">
+<h2>Szczegóły Pokemona</h2>
 
-  <h2>Statystyki</h2>
+<div *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<div *ngIf="pokemonDetails">
+  <h3>{{ pokemonDetails.name | titlecase }}</h3>
+  <img
+    [src]="pokemonDetails.sprites.front_default"
+    alt="{{ pokemonDetails.name }}"
+  />
+
+  <h4>Statystyki</h4>
   <ul>
     <li *ngFor="let stat of pokemonDetails.stats">
       {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
     </li>
   </ul>
 
-  <h2>Typ</h2>
+  <h4>Typy</h4>
   <ul>
     <li *ngFor="let type of pokemonDetails.types">
       {{ type.type.name | titlecase }}
     </li>
   </ul>
+</div>
+
+<div *ngIf="!pokemonDetails && !errorMessage">
+  <p>Ładowanie szczegółów Pokemona...</p>
 </div>
