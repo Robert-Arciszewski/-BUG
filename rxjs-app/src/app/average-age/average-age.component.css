@@ -1,0 +1,62 @@
+/* Ogólne style dla kontenera */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nagłówki */
+h1 {
+  font-size: 2rem;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #28a745;
+  margin-top: 20px;
+}
+
+/* Przycisk */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Sekcje informacyjne */
+p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Styl dla div z wynikiem */
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  color: #495057;
+}
+
+/* Styl dla błędów lub ostrzeżeń */
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 20px;
+}
