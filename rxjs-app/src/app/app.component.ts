@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AverageAgeComponent } from './average-age/average-age.component'; // Importujemy komponent
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [AverageAgeComponent],
 })
-export class AppComponent {
-  title = 'rxjs-app';
-}
+export class AppComponent {}
