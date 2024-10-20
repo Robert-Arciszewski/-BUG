@@ -1,18 +1,107 @@
-h1 {
+/* Kontener główny */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-header {
   text-align: center;
+  margin-bottom: 20px;
 }
 
-img {
-  display: block;
-  margin: 0 auto;
+.pokemon-header img {
+  width: 200px;
+  height: 200px;
 }
 
-ul {
+.pokemon-header h3 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.details-section {
+  margin: 20px 0;
+}
+
+.details-section h4 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.details-section ul {
   list-style-type: none;
   padding: 0;
 }
 
-ul li {
-  font-size: 1.2rem;
+.details-section li {
+  font-size: 1rem;
   margin: 5px 0;
+}
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.stat-item {
+  flex: 0 0 48%;
+  margin-bottom: 10px;
+}
+
+.stat-item span {
+  font-weight: bold;
+}
+
+.sprites {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sprites img {
+  width: 96px;
+  height: 96px;
+  margin: 5px;
+  transition: transform 0.2s;
+}
+
+.sprites img:hover {
+  transform: scale(1.1);
+}
+
+.button-container {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 600px) {
+  .stat-item {
+    flex: 0 0 100%;
+  }
+
+  .pokemon-header img {
+    width: 150px;
+    height: 150px;
+  }
 }

@@ -1,29 +1,97 @@
-<h2>Szczegóły Pokemona</h2>
+<div class="container" *ngIf="pokemonDetails">
+  <div class="pokemon-header">
+    <h3>{{ pokemonDetails.name | titlecase }} (ID: {{ pokemonDetails.id }})</h3>
+    <img
+      [src]="pokemonDetails.sprites.other['official-artwork'].front_default || pokemonDetails.sprites.front_default"
+      alt="{{ pokemonDetails.name }}"
+    />
+  </div>
+
+  <div class="details-section">
+    <h4>Typy</h4>
+    <ul>
+      <li *ngFor="let type of pokemonDetails.types">
+        {{ type.type.name | titlecase }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="details-section">
+    <h4>Statystyki</h4>
+    <div class="statistics">
+      <div class="stat-item" *ngFor="let stat of pokemonDetails.stats">
+        <span>{{ stat.stat.name | titlecase }}:</span> {{ stat.base_stat }}
+      </div>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h4>Zdolności (Abilities)</h4>
+    <ul>
+      <li *ngFor="let ability of pokemonDetails.abilities">
+        {{ ability.ability.name | titlecase }}
+        <span *ngIf="ability.is_hidden">(Ukryta)</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="details-section">
+    <h4>Ruchy (Moves)</h4>
+    <ul>
+      <li *ngFor="let move of pokemonDetails.moves.slice(0, movesLimit)">
+        {{ move.move.name | titlecase }}
+      </li>
+    </ul>
+    <div class="button-container" *ngIf="pokemonDetails.moves.length > movesLimit">
+      <button (click)="showAllMoves()">
+        Pokaż wszystkie ruchy ({{ pokemonDetails.moves.length }})
+      </button>
+    </div>
+  </div>
+
+  <div class="details-section">
+    <h4>Wzrost i Waga</h4>
+    <p>Wzrost: {{ pokemonDetails.height / 10 }} m</p>
+    <p>Waga: {{ pokemonDetails.weight / 10 }} kg</p>
+  </div>
+
+  <div class="details-section">
+    <h4>Gatunek</h4>
+    <p>{{ pokemonDetails.species.name | titlecase }}</p>
+  </div>
+
+  <div class="details-section">
+    <h4>Galeria</h4>
+    <div class="sprites" *ngIf="pokemonDetails.sprites">
+      <img
+        *ngFor="let sprite of getSprites()"
+        [src]="sprite.url"
+        [alt]="sprite.name"
+      />
+    </div>
+  </div>
+
+  <div class="details-section" *ngIf="pokemonDetails.forms && pokemonDetails.forms.length > 1">
+    <h4>Formy</h4>
+    <ul>
+      <li *ngFor="let form of pokemonDetails.forms">
+        {{ form.name | titlecase }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="details-section" *ngIf="pokemonDetails.held_items && pokemonDetails.held_items.length">
+    <h4>Przedmioty trzymane (Held Items)</h4>
+    <ul>
+      <li *ngFor="let item of pokemonDetails.held_items">
+        {{ item.item.name | titlecase }}
+      </li>
+    </ul>
+  </div>
+</div>
 
 <div *ngIf="errorMessage">
   <p>{{ errorMessage }}</p>
-</div>
-
-<div *ngIf="pokemonDetails">
-  <h3>{{ pokemonDetails.name | titlecase }}</h3>
-  <img
-    [src]="pokemonDetails.sprites.front_default"
-    alt="{{ pokemonDetails.name }}"
-  />
-
-  <h4>Statystyki</h4>
-  <ul>
-    <li *ngFor="let stat of pokemonDetails.stats">
-      {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
-    </li>
-  </ul>
-
-  <h4>Typy</h4>
-  <ul>
-    <li *ngFor="let type of pokemonDetails.types">
-      {{ type.type.name | titlecase }}
-    </li>
-  </ul>
 </div>
 
 <div *ngIf="!pokemonDetails && !errorMessage">

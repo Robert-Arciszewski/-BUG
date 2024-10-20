@@ -1,15 +1,35 @@
-<h2>Lista Pokemonów</h2>
+<div class="container">
+  <h2>Lista Pokemonów</h2>
 
-<div *ngIf="errorMessage">
-  <p>{{ errorMessage }}</p>
-</div>
+  <!-- Pole wyszukiwania -->
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Wpisz nazwę Pokemona"
+      [(ngModel)]="searchTerm"
+    />
+    <button (click)="searchPokemon()">Szukaj</button>
+  </div>
 
-<ul *ngIf="pokemonList.length">
-  <li *ngFor="let pokemon of pokemonList">
-    {{ pokemon.name | titlecase }}
-  </li>
-</ul>
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
 
-<div *ngIf="!pokemonList.length && !errorMessage">
-  <p>Ładowanie danych...</p>
+  <ul class="pokemon-list" *ngIf="pokemonList.length">
+    <li *ngFor="let pokemon of pokemonList">
+      <div class="pokemon-card">
+        <img [src]="getPokemonImage(pokemon.url)" alt="{{ pokemon.name }}" />
+        <a
+          [routerLink]="['/pokemon-details']"
+          [queryParams]="{ url: pokemon.url }"
+        >
+          {{ pokemon.name | titlecase }}
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="!pokemonList.length && !errorMessage">
+    <p>Ładowanie danych...</p>
+  </div>
 </div>
