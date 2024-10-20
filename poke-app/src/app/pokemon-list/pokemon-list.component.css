@@ -1,0 +1,22 @@
+.pokemon-list {
+  text-align: center;
+}
+
+.pokemon-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pokemon-list li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.pokemon-list a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.pokemon-list a:hover {
+  text-decoration: underline;
+}

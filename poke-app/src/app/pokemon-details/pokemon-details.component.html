@@ -1,1 +1,18 @@
-<p>pokemon-details works!</p>
+<div *ngIf="pokemonDetails">
+  <h1>{{ pokemonDetails.name | titlecase }}</h1>
+  <img [src]="pokemonDetails.sprites.front_default" alt="{{ pokemonDetails.name }}">
+
+  <h2>Statystyki</h2>
+  <ul>
+    <li *ngFor="let stat of pokemonDetails.stats">
+      {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
+    </li>
+  </ul>
+
+  <h2>Typ</h2>
+  <ul>
+    <li *ngFor="let type of pokemonDetails.types">
+      {{ type.type.name | titlecase }}
+    </li>
+  </ul>
+</div>
