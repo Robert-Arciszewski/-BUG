@@ -1,1 +1,12 @@
-<p>average-age works!</p>
+<div class="container">
+  <h1>Oblicz średnią wieku osób mieszkających w Polsce</h1>
+  <button (click)="calculateAverageAge()">Oblicz średnią</button>
+
+  <div *ngIf="averageAge !== null">
+    <h2>Średnia wieku osób w Polsce: {{ averageAge }}</h2>
+  </div>
+
+  <div *ngIf="averageAge === null">
+    <p>Brak danych. Kliknij przycisk powyżej, aby obliczyć średnią.</p>
+  </div>
+</div>
