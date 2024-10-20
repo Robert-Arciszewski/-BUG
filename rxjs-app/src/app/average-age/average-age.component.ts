@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { from } from 'rxjs';
 import { filter, map, mergeMap, toArray } from 'rxjs/operators';
 
@@ -7,6 +8,7 @@ import { filter, map, mergeMap, toArray } from 'rxjs/operators';
   templateUrl: './average-age.component.html',
   styleUrls: ['./average-age.component.css'],
   standalone: true,
+  imports: [CommonModule],
 })
 export class AverageAgeComponent {
   averageAge: number | null = null;
